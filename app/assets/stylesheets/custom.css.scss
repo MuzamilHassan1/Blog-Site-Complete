@@ -1,0 +1,25 @@
+@import 'bootstrap/dist/css/bootstrap';
+
+.jumbotron{
+  background-image: url('jumbo-image.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+  height: 450px;
+  margin: 30px 0px;
+}
+
+html,
+body{
+  height: 100%;
+}
+#page-content {
+  flex: 1 0 auto;
+  background-color: lightgray;
+}
+
+#sticky-footer{
+  flex-shrink: none;
+  height: 100px;
+}
