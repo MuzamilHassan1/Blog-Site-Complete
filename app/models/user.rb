@@ -1,5 +1,6 @@
 class User < ApplicationRecord
- #constant in ruby (all caps0
+  has_many :articles
+ #constant in ruby (all caps)
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :username,
              presence: true,
