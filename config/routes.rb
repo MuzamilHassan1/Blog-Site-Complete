@@ -4,4 +4,7 @@ Rails.application.routes.draw do
   get 'about', to:'pages#about'
   #route for all articles CRUD operation
   resources :articles#, only: [:show,:index,:new,:create, :edit. :update, :destroy]
+  #specifying user routes
+  get 'signup', to: 'users#new'
+  resources :users, except: [:new]
 end
