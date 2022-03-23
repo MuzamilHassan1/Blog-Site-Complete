@@ -13,4 +13,11 @@ class ApplicationController < ActionController::Base
     #convert the output from current_user to booleand using two bangs
     !!current_user
   end
+
+  def require_user
+    if !logged_in?
+      flash[:notice]="You must have logged in to perfom this action"
+      redirect_to login_path
+    end
+  end
 end
