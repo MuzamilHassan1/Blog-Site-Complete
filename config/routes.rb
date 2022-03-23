@@ -7,4 +7,8 @@ Rails.application.routes.draw do
   #specifying user routes
   get 'signup', to: 'users#new'
   resources :users, except: [:new]
+  #creating login route in session controller
+  get 'login', to: 'sessions#new'
+  post 'login', to: 'sessions#create'
+  delete 'logout', to: 'sessions#destroy'
 end
