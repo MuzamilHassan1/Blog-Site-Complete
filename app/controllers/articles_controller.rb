@@ -19,7 +19,8 @@ class ArticlesController < ApplicationController
       #creating article object by taking values from the FORM
       #permit is security feature
       @article = Article.new(article_params)
-      @article.user=User.first
+      #specifying the sign-in user as the author of the article
+      @article.user=current_user
       if @article.save #if article passed validations (than save)
           #redirecting to the created article(show route) after button is pressed
           redirect_to @article
