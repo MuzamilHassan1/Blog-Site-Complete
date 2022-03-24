@@ -19,4 +19,16 @@ class CreateCategoryTest < ActionDispatch::IntegrationTest
     #the show page for categories will surely display the name(Sports) and we are looking for that
     assert_match "Sports", response.body
   end
+
+  test "get new category form and reject invalid category submission" do
+    get "/categories/new"
+    assert_response :success
+    assert_no_difference 'Category.count' do
+      post categories_path, params: { category: {name: ""}}
+    end
+    #after going to message partial we want to check for specific words in the body,div and h4
+    assert_match "errors", response.body
+    assert_select "div.alert"
+    assert_select "h4.alert-heading"
+  end
 end
