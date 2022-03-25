@@ -7,6 +7,7 @@
                     by <%=link_to article.user.username, user_path(article.user)%>
                     <% if article.categories.any?%>
                         <%# loop through each category to render category partial<%%>
+                        <%# this will provide category object in the _category partial<%%>
                         <div class="mt-2"><%=render article.categories%></div>
                     <%end%>
                 </div>
